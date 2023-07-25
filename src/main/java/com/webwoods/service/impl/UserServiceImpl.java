@@ -1,6 +1,7 @@
 package com.webwoods.service.impl;
 
 import com.webwoods.dto.UserDto;
+import com.webwoods.dto.UserUpdateDto;
 import com.webwoods.entity.UserEntity;
 import com.webwoods.repository.UserRepository;
 import com.webwoods.service.UserService;
@@ -45,4 +46,24 @@ public class UserServiceImpl implements UserService {
         System.out.println("findall");
         return userRepository.findAll();
     }
+
+    @Override
+    public String deleteUser(Integer id) {
+        if (userRepository.existsById(id)){
+            userRepository.deleteById(id);
+            return "Deleted Successfully" + id;
+        }
+        else{
+            throw new RuntimeException("No customer found");
+        }
+    }
+
+    @Override
+    public String updateUser(UserUpdateDto userUpdate) {
+        if(userRepository.existsById(userUpdate.getId())){
+
+        }
+        return null;
+    }
+
 }

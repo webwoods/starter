@@ -1,6 +1,7 @@
+
 type Query {
-    userAll: [UserEntity]
-    userById(id: ID): UserEntity
+    userAll: ResponseEntity
+    userById(id: ID): ResponseEntity
 
     #    postAll: [Post]!
     #    postByPostId(id: ID!): Post
@@ -9,6 +10,7 @@ type Query {
 
 type Mutation {
     createUser(userDto:UserDto!): ResponseEntity!
+    deleteUser(id :ID): ResponseEntity
     #    createPost(userId: Int!, title: String!, description: String!, publishedDate: String!): Post!
     #    deletePostById(postId:ID):Boolean
     #email: String,fullName: String,presentAddress: String,permanentAddress: String,gender: String,dob: String
@@ -37,13 +39,14 @@ input UserDto {
 
 type StandardResponse {
     code: Int!
-    message: String!
-    data : String
-
+    message: String
+    data : UserEntity
+    datalist: [UserEntity]
+    cusMessage : String
 }
 
 type ResponseEntity{
-    body : StandardResponse!
+    body : StandardResponse
     status : String
 }
 

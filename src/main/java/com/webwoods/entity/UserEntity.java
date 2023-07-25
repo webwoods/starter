@@ -2,7 +2,6 @@ package com.webwoods.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
